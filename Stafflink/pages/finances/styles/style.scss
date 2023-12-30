@@ -1,0 +1,78 @@
+@import '../../../patternStyles/style.scss';
+@import '../../../patternStyles/components/dataTable/style';
+
+#main_content {
+    
+    .tableContainer_header {
+        padding-bottom: 0;
+    }
+
+    .scrollVisible {
+        @include flexBox($fd: column, $g: 3rem);
+        overflow: hidden auto;
+    }
+
+    .container {
+        @include flexBox($fd: column, $g: 1rem);
+        padding: 0 1.5rem;
+
+        .content {
+            @include flexBox($j: space-between, $g: 1rem);
+            margin-bottom: 2rem;
+
+            .cards {
+                @include flexBox($j: space-between, $g: 1rem, $fw: wrap);
+                flex: 0 1 auto;
+            }
+
+            .dataCard {
+                @include flexBox($fd: column, $a: center, $j: space-between, $g: 1rem);
+                padding: .5rem 1.5rem;
+                border: 2px solid $extra-secondary;
+                border-radius: 1rem;
+                box-shadow: $innerShadow;
+                flex: 1 0 250px;
+                max-width: 100%;
+                width: 100%;
+
+                .cardHeader {
+                    text-align: center;
+                    h4 {
+                        font-family: 'PoppinsLight';
+                    }
+                }
+
+                .cardbody {
+                    color: $extra-primary;
+                }
+
+                .cardFooter {
+                    width: 100%;
+                    font-size: .8rem;
+                }
+            }
+        }
+
+        &.graphics {
+            .content {
+                @include flexBox($fd: column, $g: 2rem);
+                flex-wrap: wrap;
+                max-width: 100%;
+
+                .chart-container {
+                    @include flexBox($j: space-around, $g: 2.5rem, $fw: wrap);
+                    max-width: 100%;
+
+                    .chart {
+                        max-width: 500px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+canvas {
+    max-height: 500px;
+}
+

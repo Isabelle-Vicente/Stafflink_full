@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Stafflink | Login</title>
+
+    <link
+      rel="shortcut icon"
+      href="../../assets/images/Stafflink_favicon_light.svg"
+      type="image/x-icon"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link
+      rel="shortcut icon"
+      href="../../assets/images/Stafflink_favicon_dark.svg"
+      type="image/x-icon"
+      media="(prefers-color-scheme: light)"
+    />
+
+    <meta
+      name="description"
+      content="O Stafflink é um sistema pensado para gerenciar a área de Recursos Humanos de uma empresa, podendo ser de pequeno a médio porte. O objetivo desse projeto é trazer mais agilidade e produtividade nos procedimentos por um baixo custo."
+    />
+
+    <script src="./pages/login/scripts/main.js" type="module" defer></script>
+    <link rel="stylesheet" href="./pages/login/styles/style.css" />
+
+    <!-- Toastfy -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+  </head>
+  <body>
+    <aside id="sideContent">
+      <h1>Controle a sua equipe em um só lugar</h1>
+
+      <img src="assets/images/collaboration.svg" alt="Colaboradores" />
+    </aside>
+
+    <main>
+      <header>
+        <div class="logo">
+          <picture>
+            <source
+              media="(max-width: 768px)"
+              srcset="assets/images/Stafflink_logo_dark.svg"
+            />
+            <source
+              media="(min-width: 769px)"
+              srcset="assets/images/Stafflink_logo_light.svg"
+            />
+
+            <img
+              src="assets/images/Stafflink_logo_dark.svg"
+              alt="Stafflink logo"
+            />
+          </picture>
+        </div>
+
+        <div class="title">
+          <h2>Bem-vindo(a) de volta</h2>
+          <p>Por favor, insira suas informações abaixo</p>
+        </div>
+      </header>
+
+      <section id="loginContainer">
+        <form>
+          <div class="field">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+
+          <div class="field">
+            <label for="password">Senha</label>
+            <input type="password" id="password" name="password" required />
+          </div>
+
+          <div class="extraOptions">
+            <div class="rememberContainer">
+              <input type="checkbox" id="remember" name="remember" />
+              <label for="remember">Lembrar de mim</label>
+            </div>
+
+            <div class="forgotPasswordContainer">
+              <a href="./pages/forgotPassword/index.html">Esqueceu a senha?</a>
+            </div>
+          </div>
+
+          <div class="actions">
+            <div id="loader" style="display: none">
+              <div>
+                <script
+                  src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+                  type="module"
+                ></script>
+
+                <dotlottie-player
+                  src="https://lottie.host/29e5ec97-c579-4bd4-bba1-a1801849014d/I7wKA6dKTe.json"
+                  background="transparent"
+                  speed="1"
+                  loop
+                  autoplay
+                ></dotlottie-player>
+              </div>
+            </div>
+
+            <div class="btnLogin" id="btnLogin">
+              <button type="submit">Login</button>
+            </div>
+
+            <span
+              >Primeiro acesso? Clique
+              <a href="./pages/firstAccess/index.html">Aqui.</a></span
+            >
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <img src="./assets/images/SideWave.svg" alt="Wave" class="wave" id="top" />
+    <img
+      src="./assets/images/SideWave.svg"
+      alt="Wave"
+      class="wave"
+      id="bottom"
+    />
+
+    <!-- Toastfy -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+  </body>
+</html>

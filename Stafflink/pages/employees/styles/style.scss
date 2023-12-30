@@ -1,0 +1,81 @@
+@import '../../../patternStyles/style.scss';
+@import '../../../patternStyles/components/dataTable/style';
+@import '../../../patternStyles/components/form/styles';
+
+.loading {
+    min-height: 1.5rem;
+}
+
+.sortLoader {
+    width: 2.5rem;
+    
+    @media (max-width: 780px) {
+        display: none;
+    }
+}
+
+.popUp {
+    position: fixed;
+    z-index: 100000000;
+    inset: 0;
+    margin: auto;
+    background-color: $bg-primary;
+    width: 90%;
+    height: 90%;
+    padding: 1.5rem;
+    padding-bottom: 2rem;
+    border-radius: 1rem;
+    box-shadow: $innerShadow;
+    overflow: hidden auto;
+
+    @include flexBox($fd: column, $g: 2rem);
+
+    .popUpHeader {
+        @include flexBox($g: 1rem, $a: center, $j: space-between);
+
+        .closeButton {
+            padding: .5rem 1rem;
+            font-size: 1rem;
+            font-weight: 800;
+        }
+    }
+
+    .formContainer {
+        @include flexBox($j: space-between, $g: 1rem, $fw: wrap);
+        padding: 0;
+        
+        .field {
+            @include flexBox($fd: column, $g: .5rem);
+            flex: 1 0 200px;
+
+            &.small {
+                flex: 0 1 auto;
+            }
+
+            &.big {
+                flex: 2 0 300px;
+            }
+
+            &:has(input:disabled) {
+                opacity: .6;
+            }
+        }
+    }
+
+    .popUpFooter {
+        @include flexBox($fd: column, $j: center, $g: 1rem, $fw: wrap);
+        width: 100%;
+        margin-top: 1.5rem;
+
+        #deleteEmployee {
+            flex: 1 0 auto;
+            background-color: rgba($color: $extra-terciary, $alpha: 0.85);
+            color: $bg-secondary;
+            border: none;
+
+            &:hover {
+                background-color: $extra-terciary;
+            }
+        }
+    }
+}

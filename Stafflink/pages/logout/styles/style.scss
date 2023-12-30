@@ -1,0 +1,28 @@
+@import '../../../patternStyles/style.scss';
+@import "../../tolken/tolkenHR/styles/style.scss";
+
+body {
+    @include flexBox($fd: column, $g: 2rem);
+
+    main {
+        .logo {
+            position: absolute;
+            left: 1rem;
+            top: 1rem;
+        }
+        
+        background-color: #f1f1f1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        h1 {
+            color: #015E64;
+            font-size: 1.5rem;
+        }
+
+        p {
+            color: black;
+        }
+    }
+}

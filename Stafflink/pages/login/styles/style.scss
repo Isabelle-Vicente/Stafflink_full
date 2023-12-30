@@ -1,0 +1,177 @@
+@import '../../../patternStyles/style.scss';
+
+body {
+    flex-direction: column;
+    justify-content: center;
+    align-items: initial;
+
+    text-align: center;
+    position: relative;
+
+    .wave {
+        position: fixed;
+        z-index: -100;
+        width: 100%;
+        width: 70vw;
+        max-width: 400px;
+        height: fit-content;
+
+        &#top {
+            transform: rotate(180deg);
+            top: 0;
+            right: 0;
+        }
+
+        &#bottom {
+            bottom: 0;
+            left: 0;
+        }
+    }
+}
+
+a {
+    color: $extra-secondary;
+    text-decoration: underline;
+}
+
+#sideContent {
+    display: none;
+}
+
+main {
+    justify-content: center;
+
+    header {
+        flex-direction: column;
+        border: none;
+        padding: 0;
+
+        .title {
+            @include flexBox($fd: column, $a: center, $g: 1rem);
+
+            h2 {
+                text-align: center;
+                font-size: 1rem;
+                color: #015E64;
+                font-family: 'PoppinsBold';
+            }
+
+            p {
+                font-size: .8rem;
+                color: rgba($color: $default-color, $alpha: .7);
+                font-family: 'PoppinsLight';
+            }
+        }
+    }
+
+    #loginContainer {
+        @include flexBox($fd: column, $a: center);
+
+        form {
+            @include flexBox($fd: column, $a: initial, $g: .8rem);
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .field {
+            @include flexBox($fd: column, $a: flex-start, $g: .5rem);
+            // width: fit-content;
+
+            input {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        .extraOptions {
+            @include flexBox($j: space-between, $g: .5rem);
+            font-size: .7rem;
+
+            .rememberContainer {
+                @include flexBox($g: .5rem);
+
+                input {
+                    min-width: initial;
+                }
+            }
+        }
+
+        .actions {
+            @include flexBox($fd: column, $a: center, $g: .5rem);
+            font-size: .8rem;
+
+            .btnLogin {
+                height: 3rem;
+            }
+
+            #loader {
+                height: 3rem;
+            }
+
+            button {
+                max-width: 200px;
+                background-color: $extra-secondary;
+                color: $bg-primary;
+            }
+        }
+    }
+}
+
+.logo {
+    width: 100%;
+    max-width: 200px;
+}
+
+@media (min-width: 769px) {
+    body {
+        flex-direction: row;
+        justify-content: inherit;
+        text-align: unset;
+
+        .wave {
+            display: none;
+        }
+    }
+
+    main {
+        header {
+            .title {
+                gap: .5rem;
+
+                h2 {
+                    font-size: 1.8rem;
+                }
+            }
+        }
+
+        #loginContainer {
+            form {
+                gap: 1.3rem;
+            }
+        }
+    }
+
+    .logo {
+        position: absolute;
+        left: 1rem;
+        top: 1rem;
+    }
+
+    #sideContent {
+        @include flexBox($fd: column, $j: flex-end, $g: 5rem);
+        padding: 1.5rem 1.5rem 0 1.5rem;
+        background-color: $extra-primary;
+        width: 50%;
+
+        h1 {
+            max-width: 500px;
+            font-size: 2rem;
+            color: $bg-primary;
+        }
+
+        img {
+            height: fit-content;
+            max-width: 500px;
+        }
+    }
+}

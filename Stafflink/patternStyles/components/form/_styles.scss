@@ -1,0 +1,107 @@
+.formContainer {
+    width: 100%;
+    padding: 0 1.5rem;
+
+    form {
+        @include flexBox($fd: column, $a: flex-start, $g: 2.5rem, $fw: wrap);
+
+        hr {
+            border: 2px solid $extra-secondary;
+            width: 100%;
+            border-radius: .5rem;
+        }
+
+        .fieldsSection {
+            @include flexBox($j: space-between, $g: 1rem, $fw: wrap);
+            width: 100%;
+
+            &:has(.field.inline):has(input[type='checkbox']) {
+                .field {
+                    flex: unset;
+                }
+            }
+
+            h3 {
+                width: 100%;
+            }
+
+            .field {
+                @include flexBox($fd: column, $g: .5rem);
+                flex: 1 0 200px;
+                // max-width: 500px;
+
+                &.inline {
+                    flex-direction: row;
+                    flex-wrap: wrap;
+
+                    &:has(input[type='checkbox']) {
+                        flex-basis: unset;
+                        flex-wrap: nowrap;
+
+                        input {
+                            min-width: unset;
+                            width: 20px;
+                        }
+                    }
+                }
+
+                &.small {
+                    flex: 0 1 auto;
+                }
+
+                &.big {
+                    flex: 2 0 300px;
+                }
+
+                &:has(input:disabled) {
+                    opacity: .6;
+                }
+            }
+        }
+
+        .actions {
+            @include flexBox($j: center, $g: 1rem, $fw: wrap);
+            align-self: center;
+            
+            button {
+                flex: 1 0 auto;
+                max-width: 100%;
+            }
+
+            #register {
+                background-color: $extra-primary;
+                color: $bg-secondary;
+            }
+        }
+    }
+}
+
+.field:has(input[type=file]) {
+    input {
+        position: absolute;
+        opacity: 0;
+        z-index: -999999;
+    }
+
+    label {
+        @include flexBox($g: .3rem);
+        cursor: pointer;
+
+        img {
+            width: 25px;
+        }
+    }
+
+    #preview {
+        &[src="#"] {
+            display: none;
+        }
+    
+        width: 100%;
+        max-width: 300px;
+        height: 400px;
+        object-fit: cover;
+        border-radius: .5rem;
+        align-self: center;
+    }
+}

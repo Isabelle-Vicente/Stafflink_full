@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Stafflink | Registro</title>
+
+    <link rel="shortcut icon" href="../../assets/images/Stafflink_favicon_light.svg" type="image/x-icon" media="(prefers-color-scheme: dark)">
+    <link rel="shortcut icon" href="../../assets/images/Stafflink_favicon_dark.svg" type="image/x-icon" media="(prefers-color-scheme: light)">
+
+    <meta name="description" content="O Stafflink é um sistema pensado para gerenciar a área de Recursos Humanos de uma empresa, podendo ser de pequeno a médio porte. O objetivo desse projeto é trazer mais agilidade e produtividade nos procedimentos por um baixo custo.">
+
+    <!-- Toastfy -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="scripts/main.js" type="module" defer></script>
+
+    <script
+      src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+      type="module"
+    ></script>
+</head>
+<body>
+    <aside id="sideContent">
+        <h1>Controle a sua equipe em um só lugar</h1>
+
+        <img src="../../assets/images/collaboration.svg" alt="Colaboradores">
+    </aside>
+
+    <main>
+        <header>
+            <div class="logo">
+                <picture>
+                    <source media="(max-width: 768px)" srcset="../../assets/images/Stafflink_logo_dark.svg">
+                    <source media="(min-width: 769px)" srcset="../../assets/images/Stafflink_logo_light.svg">
+
+                    <img src="../../assets/images/Stafflink_logo_dark.svg" alt="Stafflink logo">
+                </picture>
+            </div>
+
+            <div class="title">
+                <h2>Bem-vindo(a) ao Stafflink</h2>
+                <p>A plataforma certa para te auxiliar no gerenciamento completo dos recursos humanos da sua empresa!</p>
+            </div>
+
+            <div class="signUpStatus">
+                <div class="step active">
+                    <div class="number">
+                        <span><h5>1</h5></span>
+                    </div>
+                    <div class="name">Empresa</div>
+                </div>
+                <div class="step">
+                    <div class="number">
+                        <span><h5>2</h5></span>
+                    </div>
+                    <div class="name">Endereço</div>
+                </div>
+                <div class="step">
+                    <div class="number">
+                        <span><h5>3</h5></span>
+                    </div>
+                    <div class="name">Acesso geral</div>
+                </div>
+                <div class="step">
+                    <div class="number">
+                        <span><h5>4</h5></span>
+                    </div>
+                    <div class="name">Concluir cadastro</div>
+                </div>
+            </div>
+
+            <div class="stepDescription">
+                <p>Por favor, insira as informações da empresa abaixo</p>
+            </div>
+        </header>
+
+        <section id="loginContainer">
+            <form>
+                <div class="fieldsContainer visible">
+                    <div class="field">
+                        <label for="name">Nome</label>
+                        <input type="text" id="name" name="name" required autofocus>
+                    </div>
+    
+                    <div class="field">
+                        <label for="cnpj">CNPJ</label>
+                        <input type="text" id="cnpj" name="cnpj" required>
+                    </div>
+    
+                    <div class="fieldContainer">
+                        <div class="field">
+                            <label for="stateRegistration">Inscrição estadual</label>
+                            <input type="text" id="stateRegistration" name="stateRegistration" required>
+                        </div>
+        
+                        <div class="field">
+                            <label for="openingDate">Data de abertura</label>
+                            <input type="date" id="openingDate" name="openingDate" required>
+                        </div>
+                    </div>
+    
+                    <div class="field">
+                        <label for="corporateName">Razão social</label>
+                        <input type="text" id="corporateName" name="corporateName" required>
+                    </div>
+                </div>
+                
+                <div class="fieldsContainer">
+                    <div class="field">
+                        <label for="cep">CEP</label>
+                        <input type="number" name="cep" id="cep" min="0">
+                    </div>
+
+                    <div class="fieldContainer">
+                        <div class="field">
+                            <label for="address">Endereço</label>
+                            <input type="text" name="address" id="address" disabled>
+                        </div>
+    
+                        <div class="field">
+                            <label for="number">Número</label>
+                            <input type="number" name="number" id="number">
+                        </div>
+                    </div>
+
+                    <div class="fieldContainer">
+                        <div class="field">
+                            <label for="neighborhood">Bairro</label>
+                            <input type="text" name="neighborhood" id="neighborhood" disabled>
+                        </div>
+
+                        <div class="field">
+                            <label for="city">Cidade</label>
+                            <input type="text" name="city" id="city" disabled>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="state">Estado</label>
+                        <input type="text" name="state" id="state" disabled>
+                    </div>
+                </div>
+
+                <div class="fieldsContainer">
+                    <h2>Administrador geral</h2>
+                    
+                    <div class="field">
+                        <label for="email">E-mail <span>(Utilizado pelo adimistrador geral)</span></label>
+                        <input type="email" name="email">
+                    </div>
+
+                    <div class="field">
+                        <label for="confirmEmail">Confirme o e-mail</label>
+                        <input type="email" name="confirmEmail">
+                    </div>
+
+                    <div class="fieldContainer">
+                        <div class="field">
+                            <label for="password">Senha</label>
+                            <input type="password" name="password" id="password" minlength="8" maxlength="16">
+                            <span class="spanAlert password">
+                                A senha deve conter de 8 a 16 caracteres, possuir letras maiúsculas, minúsculas, numeros e um caracter especial (! @ # $ % ^ & * _ = + -).
+                            </span>
+                        </div>
+
+                        <div class="field">
+                            <label for="confirmPassword">Confirme a senha</label>
+                            <input type="password" name="confirmPassword" id="confirmPassword" minlength="8" maxlength="16">
+                            <span class="spanAlert confirmPassword">
+                                A senha deve ser igual a colocada no campo anterior.
+                            </span>
+                        </div>
+                    </div>
+
+                    <p>
+                        Após ser direcionado ao sistema, será necessário inserir novamente essas informações para que seja cadastrado como funcionário. Onde, então, poderão ser cadastrados os demais funcionários.
+                    </p>
+                </div>
+
+                <div class="fieldsContainer">
+                    <h3>Para finalizar, foi enviado um código de validação para o email cadastrado na etapa anterior.</h3>
+                    <input type="text" name="finalCode" id="finalCode" placeholder="Cole o código aqui">
+                </div>
+
+                <div class="actions">
+                    <button type="button" id="back">Voltar</button>
+                    <button type="reset" id="clear">Limpar formulário</button>
+                    <button type="submit" id="continue">Continuar</button>
+                    <div id="loader" style="display: none;">
+                        <div>
+                          <dotlottie-player
+                            src="https://lottie.host/29e5ec97-c579-4bd4-bba1-a1801849014d/I7wKA6dKTe.json"
+                            background="transparent"
+                            speed="1"
+                            loop
+                            autoplay
+                          ></dotlottie-player>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <img src="../../assets/images/SideWave.svg" alt="Wave" class="wave" id="top">
+    <img src="../../assets/images/SideWave.svg" alt="Wave" class="wave" id="bottom">
+
+    <!-- Toastfy -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Stafflink | Token Funcionário</title>
+
+    <link
+      rel="shortcut icon"
+      href="../../../assets/images/Stafflink_favicon_light.svg"
+      type="image/x-icon"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link
+      rel="shortcut icon"
+      href="../../../assets/images/Stafflink_favicon_dark.svg"
+      type="image/x-icon"
+      media="(prefers-color-scheme: light)"
+    />
+
+    <meta
+      name="description"
+      content="O Stafflink é um sistema pensado para gerenciar a área de Recursos Humanos de uma empresa, podendo ser de pequeno a médio porte. O objetivo desse projeto é trazer mais agilidade e produtividade nos procedimentos por um baixo custo."
+    />
+
+    <!-- Toastfy -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+    <link rel="stylesheet" href="../tolkenEmployees/styles/style.css" />
+    <script src="./scripts/main.js" type="module" defer></script>
+    <script
+      src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+      type="module"
+    ></script>
+  </head>
+
+  <body>
+    <main>
+      <header>
+        <div class="imgTolken">
+          <img src="../../../assets/images/tolken.svg" alt="Colaboradores" />
+        </div>
+
+        <div>
+          <h1>Token de registro</h1>
+          <p>Insira o código de 6 números, disponibilizado pelo seu RH, abaixo</p>
+        </div>
+
+        <form action="">
+          <div class="field">
+            <input
+              type="text"
+              id="tolkenEmployee"
+              name="tolkenEmployee"
+              required
+            />
+          </div>
+        </form>
+
+        <div class="optionsTolken" id="optionsTolken">
+          <button id="confirm" onclick="">Confirmar</button>
+          <button id="tolkenbtn" onclick="window.location.href = document.referrer">Voltar</button>
+        </div>
+        <div id="loading-div"></div>
+      </header>
+    </main>
+
+    <!-- Toastfy -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  </body>
+</html>

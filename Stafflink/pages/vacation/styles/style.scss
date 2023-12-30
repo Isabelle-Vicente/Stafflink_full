@@ -1,0 +1,111 @@
+@import '../../../patternStyles/style.scss';
+@import '../../../patternStyles/components/dataTable/style';
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#showNotes {
+    z-index: 10;
+}
+
+.fc-left {
+    h2 {
+        font-weight: 200 !important;
+    }
+}
+
+.fc-unthemed td.fc-today {
+    background-color: rgba($color: $extra-primary, $alpha: 0.2);
+}
+
+#calendar {
+
+    padding: 1rem;
+
+    table tr td {
+        cursor: copy !important;
+    }
+
+    .fc-content {
+        cursor: pointer !important;
+    }
+
+    .fc-toolbar {
+        background-image: none;
+        padding-top: 10px;
+        position: sticky;
+        top: 0;
+        background-color: #fff;
+        z-index: 2;
+    }
+
+    .fc-state-active,
+    .fc-state-disabled,
+    .fc-state-down,
+    .fc-state-hover {
+        color: #029AA4;
+        background-color: #ffffff;
+        box-shadow: none;
+    }
+
+    .fc-state-default {
+        border: 2px solid #029AA4;
+
+        background: none;
+        background-image: none;
+        background-repeat: space;
+        border-radius: 5px;
+
+        color: #029AA4;
+        text-shadow: none;
+
+        box-shadow: none;
+
+        &:hover {
+            color: #ffffff;
+            background-color: #029AA4;
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    main>header .pageName h1 {
+        font-size: clamp(1.5rem, 2vw, 2rem);
+    }
+
+    .fc-unthemed .fc-content,
+    .fc-unthemed .fc-divider,
+    .fc-unthemed .fc-list-heading td,
+    .fc-unthemed .fc-list-view,
+    .fc-unthemed .fc-popover,
+    .fc-unthemed .fc-row,
+    .fc-unthemed tbody,
+    .fc-unthemed td,
+    .fc-unthemed th,
+    .fc-unthemed thead {
+        font-size: clamp(10px, 2vw, 18px);
+    }
+
+    #calendar {
+
+        [aria-label="next"],
+        [aria-label="prev"] {
+            font-size: clamp(12px, 2vw, 16px);
+        }
+
+        .fc-toolbar {
+            display: inline-grid;
+            gap: 1rem;
+            padding: 0;
+
+            h2 {
+                font-size: clamp(16px, 2vw, 24px);
+            }
+        }
+    }
+
+}

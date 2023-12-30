@@ -1,0 +1,78 @@
+@import '../../../patternStyles/style.scss';
+
+main {
+  overflow-x: hidden;
+  padding: 0 1rem;
+
+  header {
+    background-color: #F1F1F1;
+    z-index: 1;
+    position: sticky;
+    top: 0;
+    padding: 1rem;
+
+    &.analysisMode {
+      padding: 1rem 0 1rem 0;
+    }
+  }
+
+  .directory {
+    h2 {
+      font-weight: 200;
+      margin-bottom: 1rem;
+    }
+
+    span {
+      color: #029AA4;
+    }
+
+    .dirTitle {
+      font-size: .8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .dirFolders {
+      display: flex;
+      gap: 2rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+
+      .folder {
+        background-color: white;
+        padding: 1rem 2rem;
+        border-radius: 10px;
+        display: flex;
+        gap: .5rem;
+        align-items: center;
+
+
+        img {
+          width: 1.5rem;
+          filter: invert(36%) sepia(99%) saturate(634%) hue-rotate(142deg) brightness(105%) contrast(98%);
+        }
+
+        h3 {
+          font-weight: 100;
+        }
+      }
+    }
+
+    .files {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+
+      .file {
+        background-color: white;
+        text-align: center;
+        border-radius: 10px;
+
+        img {
+          width: 12rem;
+          border-radius: 15px;
+        }
+      }
+    }
+  }
+}

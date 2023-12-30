@@ -1,0 +1,147 @@
+@import '../../patterns/variables';
+
+main {
+    @include flexBox($fd: column, $j: flex-start, $g: 1rem);
+    flex: 1 10 auto;
+    padding: 1rem 1rem;
+    transition: $linear;
+
+    // height: 100vh;
+    min-height: 100vh;
+    // border: 1px solid red;
+
+    overflow: auto;
+
+    > header {
+        @include flexBox($a: center, $j: space-between, $g: 1rem, $fw: wrap);
+        border-bottom: 2px solid $extra-primary;
+        padding-bottom: 1rem;
+
+        svg {
+            width: fit-content;
+        }
+
+        .pageName {
+            @include flexBox($a: center, $j: center, $g: 1rem, $fw: wrap);
+
+            svg {
+                width: 50px;
+            }
+
+            h1 {
+                text-decoration: 3px underline $extra-primary;
+                font-family: PoppinsLight;
+            }
+        }
+
+        .searchBar {
+            @include flexBox($fd: row-reverse, $g: .7rem);
+            background-color: $bg-secondary;
+            padding: .5rem;
+            border-radius: .5rem;
+            flex: 10 1 auto;
+
+            button, input {
+                min-height: 100%;
+                border: none;
+                border-radius: unset;
+                padding: 0;
+                outline: none;
+                transition: $linear;
+
+                &:hover {
+                    background: none;
+                }
+            }
+
+            button {
+                height: 30px;
+                flex: 0 1 auto;    
+                
+                &:focus {
+                    svg path {
+                        stroke: $extra-secondary;
+                    }
+                }
+            }
+
+            input {
+                flex: 1 0 auto;
+                min-width: unset;
+
+                &:placeholder-shown {
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+
+        .options {
+            @include flexBox($a: center, $j: center, $g: 1rem, $fw: wrap);
+            flex: 1 2 auto;
+
+            .option {
+                @include flexBox($a: center, $j: center, $g: .5rem);
+                padding: .5rem .8rem;
+                border: none;
+                transition: $linear;
+                flex-grow: 1;
+
+                svg {
+                    height: 30px;
+                }
+
+                &.newEmployee {
+                    svg {
+                        :not(:nth-child(odd)) {
+                            stroke: $extra-primary;
+                        }
+                    }
+                }
+
+                &:hover {
+                    background: unset;
+                    color: $extra-secondary;
+                    background-color: $bg-secondary;
+                }
+            }
+        }
+
+        &.analysisMode {
+            > *:not(.searchBar) {
+                display: none;
+            }
+
+            border: none;
+            padding: 0;
+
+            .searchBar {
+                max-width: 350px;
+            }
+        }
+    }
+
+    #main_content {
+        background-color: $bg-secondary;
+        position: relative;
+        overflow: hidden auto;
+    
+        border-radius: 1rem;
+    
+        &::before {
+            position: absolute;
+            content: '';
+            left: -25px;
+            top: -25px;
+            background-color: $extra-primary;
+    
+            width: 50px;
+            height: 50px;
+    
+            transform: rotate(45deg);
+        }
+    }
+
+    @media(min-width: 780px) {
+        max-height: 100vh;
+    }
+}

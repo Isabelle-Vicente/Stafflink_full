@@ -1,0 +1,280 @@
+@import '../../patterns/variables';
+
+#showNotes {
+    @include flexBox($a: center, $g: 1rem);
+    border: 0;
+    padding: 1rem 2rem;
+    transition: $linear;
+
+    position: absolute;
+    bottom: 1rem;
+    right: 1.5rem;
+
+    color: inherit;
+    background-color: $bg-secondary;
+    box-shadow: $innerShadow;
+
+    svg {
+        transition: $normal;
+
+        path {
+            stroke-width: 2px;
+        }
+    }
+
+    &:hover {
+        color: $extra-primary;
+
+        svg {
+            transform: rotate(180deg);
+        }
+    }
+
+    @media (max-width: 780px) {
+        display: none;
+    }
+}
+
+#notesContainer {
+    transition: $linear;
+
+    &.visible {
+        transform: translateX(0);
+    }
+
+    @include flexBox($fd: column, $j: flex-start, $g: 1rem);
+    background-color: $bg-secondary;
+    position: absolute;
+    height: 100%;
+    width: 400px;
+    padding: 1rem;
+    transform: translateX(110%);
+
+    right: 0;
+    top: 0;
+
+    z-index: 100;
+
+    & > .title {
+        width: 100%;
+        text-align: center;
+    }
+
+    .notes {
+        @include flexBox($fd: column, $g: 1rem);
+        flex: 1 1 auto;
+        overflow: hidden auto;
+
+        & > p {
+            width: 100%;
+            font-size: .8;
+            opacity: .65;
+            text-align: center;
+        }
+
+        .card {
+            input, textarea {
+                transition: $linear;
+
+                &:disabled {
+                    padding: 0;
+                    border: none;
+                }
+            }
+
+            input {
+                width: 100%;
+                &:disabled {
+                    font-size: 1rem;
+                }
+            }
+
+            textarea {
+                height: 100%;
+                &:disabled {
+                    font-size: .8rem;
+                    border-radius: 0;
+                } 
+            }
+        }
+    }
+
+    .generalActions {
+        @include flexBox($fd: row-reverse, $a: center, $j: space-between, $g: .5rem);
+        width: 100%;
+
+        #closeNotes, #showNewNotesForm {
+            border: 0;
+            color: $default-color;
+            background-color: $bg-primary;
+        }
+
+        #closeNotes {
+            flex: 0 1 auto;
+            padding: 1rem;
+            height: 100%;
+
+            svg {
+                transform: rotate(45deg);
+                
+                path {
+                    stroke-width: 2px;
+                    stroke: red;
+                }
+            }
+        }
+
+        #showNewNotesForm {
+            @include flexBox($a: center, $g: 1rem);
+            padding: 1rem 2rem;
+            transition: $linear;
+            flex: 1 0 auto;
+            height: fit-content;
+    
+            svg {
+                width: 30px;
+            }
+    
+            &:hover {
+                color: $extra-secondary;
+            }
+        } 
+    }
+
+    @media (max-width: 780px) {
+        display: none;
+    }
+}
+
+.card {
+    @include flexBox($fd: column, $j: space-between, $g: .5rem);
+    width: 100%;
+    height: max-content;
+    max-height: 230px;
+    border-radius: 1rem;
+    background-color: $bg-primary;
+    overflow: hidden;
+    flex: 1 0 auto;
+
+    & > div{
+        padding: .7rem;
+
+        &.card_body {
+            padding: 0 .7rem;
+        }
+    }
+
+    &_header {
+        @include flexBox($a: center, $j: space-between, $g: 1rem);
+        width: 100%;
+        font-size: .9rem;
+
+        .title {
+            flex-grow: 1;
+        }
+        
+        .actions {
+            @include flexBox($a: center, $g: .5rem);
+            
+            &_option {
+                @include flexBox($a: center, $j: center);
+                border: none;
+                padding: .5rem;
+                transition: $linear;
+                border-radius: 0;
+
+                &:hover {
+                    background-color: unset;
+                    transform: scale(1.2);
+                }
+
+                svg {
+                    width: 20px;
+                }
+
+                &:disabled {
+                    opacity: .4;
+                }
+
+                &[title=edit] {
+                    &.active {
+                        svg path {
+                            stroke: $extra-primary;
+                            fill: $extra-primary;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &_body {
+        font-size: .8rem;
+        flex-grow: 1;
+    }
+
+    &_footer {
+        @include flexBox($a: center, $j: space-between);
+    }
+
+
+    input {
+        border-radius: .5rem;
+    }
+
+    textarea {
+        font-style: italic;
+    }
+}
+
+.newNoteContainer {
+    @include flexBox($a: center, $j: center);
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    
+    height: 100%;
+    width: 100%;
+
+    padding: 1rem;
+    z-index: 10000;
+
+    input, textarea {
+        width: 100%;
+        border: 1px solid rgba($color: $extra-primary, $alpha: .7);
+        opacity: .7;
+        transition: $linear;
+
+        &:focus, &:checked {
+            opacity: 1;
+        }
+    }
+
+    textarea {
+        min-height: 150px;
+    }
+
+    > div {
+        @include flexBox($fd: column, $g: 1rem);
+        height: fit-content;
+        width: fit-content;
+        width: 400px;
+    }
+
+    .card {
+        min-height: 200px;
+        max-height: unset;
+
+        background-color: $bg-secondary;
+    }
+
+    button {
+        transition: $linear;
+
+        &#cancel {
+            background-color: red;
+            color: $bg-secondary;
+            border: red;
+        }
+    }
+}

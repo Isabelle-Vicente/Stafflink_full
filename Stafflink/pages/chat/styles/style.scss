@@ -1,0 +1,205 @@
+@import '../../../patternStyles/style.scss';
+
+main {
+    // border: 1px solid green;
+
+    height: 100vh;
+
+    @media (min-width: 768px) {
+        overflow: hidden;
+    }
+}
+
+#chatScreen {
+    @include flexBox($j: space-between, $g: 1rem, $fw: wrap);
+    flex: 1 0 auto;
+    // max-height: 100vh;
+    // height: 100%;
+
+    // border: 1px solid blue;
+    overflow: hidden;
+
+    .content {
+        background-color: $bg-secondary;
+        border-radius: 1rem;
+        flex: 1 0 auto;
+        overflow: hidden;
+        max-width: 100%;
+        // max-width: 50%;
+
+        // border: 1px solid purple;
+
+        max-height: 85vh;
+        // max-height: 100vh;
+
+        &.contacts {
+            position: relative;
+
+            &::before {
+                position: absolute;
+                content: '';
+                left: -25px;
+                top: -25px;
+                background-color: $extra-primary;
+        
+                width: 50px;
+                height: 50px;
+        
+                transform: rotate(45deg);
+            }
+
+            .titleHeader {
+                @include flexBox($j: space-between, $g: 1rem, $fw: wrap);
+                padding: 1.5rem;
+            }
+
+            .list {
+                // width: 100%;
+                // max-height: 100%;
+                height: 100%;
+                // overflow: hidden auto;
+
+                li {
+                    position: relative;
+                    padding: 1rem;
+
+                    &:nth-child(odd) {
+                        box-shadow: $innerShadow;
+                        background-color: $bg-primary;
+                    }
+
+                    p {
+                        font-style: italic;
+                        color: $extra-secondary;
+                    }
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        width: 3px;
+                        height: 80%;
+                        border-radius: .5rem;
+                        background-color: rgb(195, 192, 192);
+                        left: .3rem;
+                        top: 0;
+                        bottom: 0;
+                        margin: auto;
+                    }
+                }
+            }
+        }
+
+        .container {
+            overflow: hidden auto;
+            // border: 1px solid red;
+            // max-height: 100vh;
+            // max-height: 50%;
+            height: 100%;
+        }
+
+        &.conversations {
+            @include flexBox($fd: column, $j: space-between, $g: 1.5rem);
+            flex: 2 0 auto;
+            padding: 1.5rem;
+            max-width: 100%;
+
+            #currentContact {
+                @include flexBox($a: center, $g: 1rem, $fw: wrap);
+
+                img {
+                    width: 80px;
+                    height: 80px;
+                    object-fit: cover;
+                    border-radius: 50%;
+                }
+
+                h1 {
+                    border-bottom: 2px solid $extra-primary;
+                }
+            }
+
+            & > .container {
+                @include flexBox($fd: column, $j: space-between, $g: 1.5rem);
+
+                #currentConversation {
+                    @include flexBox($fd: column, $g: 1.5rem);
+                    // border: 1px solid red;
+                    padding: .5rem 1rem;
+
+                    .message {
+                        padding: .5rem 1rem;
+                        border-radius: .2rem;
+                        width: fit-content;
+                        max-width: 60%;
+                        position: relative;
+
+                        &.contact {
+                            color: $bg-primary;
+                            background-color: $extra-secondary;
+
+                            &::before {
+                                position: absolute;
+                                content: '';
+                                background-color: $extra-secondary;
+                                // background-color: red;
+                                // border: 1px solid red;
+                                left: -1rem;
+                                top: 0;
+                                width: 25px;
+                                height: 50px;
+                                clip-path: polygon(100% 0, 0 0, 100% 50%);
+                            }
+                        }
+
+                        &:not(.contact) {
+                            background-color: $bg-primary;
+                            align-self: flex-end;
+
+                            &::before {
+                                position: absolute;
+                                content: '';
+                                background-color: $bg-primary;
+                                // background-color: red;
+                                // border: 1px solid red;
+                                right: -1rem;
+                                bottom: 0;
+                                width: 25px;
+                                height: 50px;
+                                clip-path: polygon(100% 100%, 0 50%, 0 100%);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 780px) {
+    #chatScreen {
+        .content {
+            &.conversations {
+                min-height: 100vh;
+    
+                & > .container {
+                    #currentConversation {
+                        .message {
+                           max-width: 90%; 
+                        }
+                    }
+                }
+    
+                #currentContact {
+                    img {
+                        width: 40px;
+                        height: 40px;
+                    }
+
+                    h1 {
+                        font-size: 0.8rem;
+                    }
+                }
+            }
+        }
+    }
+}

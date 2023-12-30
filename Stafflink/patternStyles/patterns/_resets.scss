@@ -1,0 +1,118 @@
+@import './variables';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 3px; /* A altura só é vista quando a rolagem é horizontal */
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+    padding: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba($color: #7e7c7c, $alpha: 0.9);
+    border-radius: 5rem;
+}
+
+:root {
+    font-size: 18px;
+    color: $default-color;
+    background-color: $bg-primary;
+}
+
+li {
+    list-style: none;
+}
+
+img, svg {
+    width: 100%;
+    height: 100%;
+    // object-fit: cover;
+}
+
+svg path {
+    transition: $linear;
+}
+
+a {
+    text-decoration: none;
+    color: $default-color;
+}
+
+button, input, textarea, select {
+    border: 0;
+    background: none;
+}
+
+button {
+    padding: .5rem 2.5rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    transition: $linear;
+
+    border: 2px solid $extra-primary;
+    color: $extra-primary;
+
+    &:hover {
+        background-color: $extra-primary;
+        color: $bg-secondary;
+    }
+
+    &.dark {
+        background-color: $extra-primary;
+        color: $bg-secondary;
+    
+        &:hover {
+            background-color: $bg-secondary;
+            color: $extra-primary;
+        }
+    }
+}
+
+input {
+    min-width: 200px;
+    
+    &:not([type=file]) {
+        padding: .5rem 1rem;
+        border-radius: 5rem;
+        border: 2px solid $extra-primary;
+    }
+}
+
+textarea {
+    resize: none;
+    width: 100%;
+    padding: .5rem;
+    border-radius: .5rem;
+    border: 2px solid $extra-primary;
+}
+
+select {
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    // border-radius: 5rem;
+    border: 2px solid $extra-primary;
+
+    &.dark {
+        background-color: $extra-primary;
+        color: $bg-secondary;
+    }
+
+    &:hover {
+        background-color: $extra-primary;
+        color: $bg-secondary;
+    }
+}

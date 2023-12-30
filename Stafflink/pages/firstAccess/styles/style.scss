@@ -1,0 +1,77 @@
+@import '../../../patternStyles/style.scss';
+@import '../../../patternStyles/components/dataTable/style';
+@import '../../../patternStyles/components/form/styles';
+
+.logo {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+
+    width: 100%;
+    max-width: 200px;
+}
+
+body {
+    justify-content: center;
+}
+
+main {
+    @include flexBox();
+    padding: 2rem;
+    max-width: 800px;
+    max-height: unset;
+
+    .container {
+        @include flexBox($fd: column, $a: flex-start, $j: center, $g: 2rem);
+        height: 100%;
+        width: 100%;
+    }
+
+    video {
+        max-width: 100%;
+        box-shadow: 0 0 10px 2px rgba($default-color, 0.30);
+    }
+
+    .container:not(.visible) {
+        display: none;
+    }
+
+    .illustration {
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .message {
+        @include flexBox($fd: column, $a: center, $g: 1rem);
+        text-align: center;
+
+        h2 {
+            color: $extra-secondary;
+        }
+
+        p {
+            font-size: .8rem;
+        }
+    }
+
+    .actions {
+        @include flexBox($a: center, $g: 1.5rem, $fw: wrap);
+        width: 100%;
+
+        .action {
+            flex: 1 0 auto;
+            max-width: 100%;
+
+            &#watchVideo {
+                background-color: $extra-primary;
+                color: white;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        margin-top: 3rem;
+    }
+}

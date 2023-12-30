@@ -1,0 +1,29 @@
+@import '../../../patternStyles/style.scss';
+
+
+#sideContent {
+    background-color: #F1F1F1;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem 1.5rem 0 1.5rem;
+
+    .logo {
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+    }
+
+    img {
+      height: -moz-fit-content;
+      height: fit-content;
+      max-width: 400px;
+    }
+    
+}
+
+
+main {
+    color: white;
+    background-color: #029AA4;
+
+}

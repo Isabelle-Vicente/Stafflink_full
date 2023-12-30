@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Controle de ponto | Stafflink</title>
+
+    <link
+      rel="shortcut icon"
+      href="../../assets/images/Stafflink_favicon_light.svg"
+      type="image/x-icon"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link
+      rel="shortcut icon"
+      href="../../assets/images/Stafflink_favicon_dark.svg"
+      type="image/x-icon"
+      media="(prefers-color-scheme: light)"
+    />
+
+    <meta
+      name="description"
+      content="O Stafflink é um sistema pensado para gerenciar a área de Recursos Humanos de uma empresa, podendo ser de pequeno a médio porte. O objetivo desse projeto é trazer mais agilidade e produtividade nos procedimentos por um baixo custo."
+    />
+
+    <!-- Toastfy -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+    <link rel="stylesheet" href="styles/style.css" />
+    <script src="scripts/main.js" type="module" defer></script>
+  </head>
+  <body>
+    <aside id="side_menu">
+      <nav id="navigationBar">
+        <ul>
+          <!-- To add more margin bottom to this first list element -->
+          <li class="user container">
+            <div class="user_figure">
+              <img
+                src="../../../assets/images/Stafflink_favicon_dark.svg"
+                alt="Nome do usuário"
+              />
+            </div>
+
+            <div class="user_info">
+              <h3>Nome do usuário</h3>
+              <p>Setor do usuário</p>
+            </div>
+          </li>
+
+          <li class="link container" data-link-to="employees">
+            <div class="link_icon">
+              <!-- <img src="../../assets/images/employees.svg" alt="Duas pessoas"> -->
+              <svg
+                width="22"
+                height="17"
+                viewBox="0 0 22 17"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 16.4546V15.5455C1 12.0309 3.84911 9.18182 7.36366 9.18182C10.8782 9.18182 13.7273 12.0309 13.7273 15.5455V16.4546"
+                  stroke="black"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M11.9091 11C11.9091 8.48963 13.9442 6.45453 16.4545 6.45453C18.9649 6.45453 21 8.48963 21 11V11.4545"
+                  stroke="black"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M7.36294 9.18194C9.37122 9.18194 10.9993 7.55384 10.9993 5.54556C10.9993 3.53724 9.37122 1.90918 7.36294 1.90918C5.35462 1.90918 3.72656 3.53724 3.72656 5.54556C3.72656 7.55384 5.35462 9.18194 7.36294 9.18194Z"
+                  stroke="black"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M16.4538 6.45457C17.9601 6.45457 19.1811 5.23352 19.1811 3.72728C19.1811 2.22105 17.9601 1 16.4538 1C14.9476 1 13.7266 2.22105 13.7266 3.72728C13.7266 5.23352 14.9476 6.45457 16.4538 6.45457Z"
+                  stroke="black"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+
+            <ul class="link_info">
+              <li>
+                Funcionários
+
+                <ul>
+                  <!-- <li>Importar tabelas</li> -->
+                  <li>Registrar funcionários</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+
+          <li class="link container" data-link-to="attendanceEmployee">
+            <div class="link_icon">
+              <!-- <img src="../../assets/images/wallet.svg" alt="Carteira de dinheiro"> -->
+              <svg
+                width="19"
+                height="17"
+                viewBox="0 0 19 17"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M16.0751 16.4497H2.88439C1.84367 16.4497 1 15.6061 1 14.5653V6.08556C1 5.04484 1.84367 4.20117 2.88439 4.20117H16.0751C17.1159 4.20117 17.9595 5.04484 17.9595 6.08556V14.5653C17.9595 15.6061 17.1159 16.4497 16.0751 16.4497Z"
+                  stroke="black"
+                />
+                <path
+                  d="M13.7196 10.7977C13.4595 10.7977 13.2485 10.5867 13.2485 10.3266C13.2485 10.0664 13.4595 9.85547 13.7196 9.85547C13.9798 9.85547 14.1907 10.0664 14.1907 10.3266C14.1907 10.5867 13.9798 10.7977 13.7196 10.7977Z"
+                  fill="black"
+                  stroke="black"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M15.1329 4.20146V2.88542C15.1329 1.64732 13.9593 0.745646 12.763 1.06465L2.39885 3.82843C1.57396 4.04841 1 4.79548 1 5.6492V6.08585"
+                  stroke="black"
+                />
+              </svg>
+            </div>
+
+            <ul class="link_info">
+              <li>Controle de ponto</li>
+            </ul>
+          </li>
+
+          <li class="link container" data-link-to="finances">
+            <div class="link_icon">
+              <!-- <img src="../../assets/images/bank.svg" alt="Banco monetário"> -->
+              <svg
+                width="19"
+                height="17"
+                viewBox="0 0 19 17"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 6.31094L9.69063 1L18.3813 6.31094"
+                  stroke="black"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M2.93164 16.4502H16.4504"
+                  stroke="black"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M7.75977 5.82812H11.6223"
+                  stroke="black"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M3.89648 13.5532V8.7251"
+                  stroke="black"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M7.75977 13.5532V8.7251"
+                  stroke="black"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M11.6221 13.5532V8.7251"
+                  stroke="black"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M15.4844 13.5532V8.72504"
+                  stroke="black"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+
+            <ul class="link_info">
+              <li>
+                Finanças
+
+                <ul>
+                  <li>Funcionários</li>
+                  <li>Pagamentos</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+
+          <li class="link container" data-link-to="vacation">
+            <div class="link_icon">
+              <!-- <img src="../../assets/images/calendar.svg" alt="Calendário"> -->
+              <svg
+                width="16"
+                height="17"
+                viewBox="0 0 16 17"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.2382 2.62632V1M10.2382 2.62632V4.25263M10.2382 2.62632H6.7739M1 7.50526V14.8237C1 15.7219 1.68935 16.45 2.53971 16.45H13.3177C14.168 16.45 14.8574 15.7219 14.8574 14.8237V7.50526H1Z"
+                  stroke="black"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M1 7.50541V4.25278C1 3.35459 1.68935 2.62646 2.53971 2.62646H4.07941"
+                  stroke="black"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M4.07971 1V4.25263"
+                  stroke="black"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M14.857 7.50541V4.25278C14.857 3.35459 14.1677 2.62646 13.3173 2.62646H12.9324"
+                  stroke="black"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+
+            <ul class="link_info">
+              <li>Férias</li>
+            </ul>
+          </li>
+
+          <li class="link container" data-link-to="news">
+            <div class="link_icon">
+              <!-- <img src="../../assets/images/megaphone.svg" alt="Megafone"> -->
+              <svg
+                width="17"
+                height="17"
+                viewBox="0 0 17 17"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.1533 10.6251V3.96817M10.1533 10.6251L15.2312 13.5268C15.5641 13.717 15.9782 13.4767 15.9782 13.0933V1.50002C15.9782 1.11666 15.5641 0.876323 15.2312 1.06652L10.1533 3.96817M10.1533 10.6251H4.32849C2.49021 10.6251 1 9.1349 1 7.29665C1 5.45838 2.49021 3.96817 4.32849 3.96817H10.1533"
+                  stroke="black"
+                />
+                <path
+                  d="M4.95817 15.0353L4.32812 10.6249H7.65661L8.22013 14.5693C8.36192 15.5618 7.59171 16.4498 6.58913 16.4498C5.76924 16.4498 5.07412 15.8469 4.95817 15.0353Z"
+                  stroke="black"
+                />
+              </svg>
+            </div>
+
+            <ul class="link_info">
+              <li>Notícias</li>
+            </ul>
+          </li>
+
+          <li class="link container" data-link-to="documents">
+            <div class="link_icon">
+              <!-- <img src="../../assets/images/clip.svg" alt="Clip de papel"> -->
+              <svg
+                width="17"
+                height="17"
+                viewBox="0 0 17 17"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15.5712 8.24292L8.68227 15.1319C7.83836 15.9759 6.69371 16.45 5.50019 16.45C4.30666 16.45 3.16202 15.9759 2.31808 15.1319C1.47412 14.288 1 13.1433 1 11.9498C1 10.7562 1.47412 9.61164 2.31808 8.76765L9.207 1.87871C9.76966 1.31608 10.5328 1 11.3284 1C12.1241 1 12.8872 1.31608 13.4498 1.87871C14.0125 2.44135 14.3286 3.20444 14.3286 4.00012C14.3286 4.79581 14.0125 5.5589 13.4498 6.12153L6.5534 13.0105C6.27208 13.2918 5.89053 13.4498 5.49269 13.4498C5.09485 13.4498 4.7133 13.2918 4.43199 13.0105C4.15067 12.7291 3.99262 12.3477 3.99262 11.9498C3.99262 11.5519 4.15067 11.1704 4.43199 10.8891L10.7962 4.53235"
+                  stroke="black"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+
+            <ul class="link_info">
+              <li>Documentos</li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+      <hr />
+
+      <div class="actions">
+        <button type="button" class="actions_option" data-link-to="logout">
+          <div class="icon especial">
+            <svg
+              width="20"
+              height="18"
+              viewBox="0 0 20 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7.18 1H3C1.89543 1 1 1.89543 1 3V14.45C1 15.5546 1.89543 16.45 3 16.45H7.18"
+                stroke="#1F1F1F"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              />
+              <path
+                d="M4 8.25C3.58579 8.25 3.25 8.58579 3.25 9C3.25 9.41421 3.58579 9.75 4 9.75V8.25ZM19.4429 9.53033C19.7358 9.23744 19.7358 8.76256 19.4429 8.46967L14.6699 3.6967C14.377 3.40381 13.9022 3.40381 13.6093 3.6967C13.3164 3.98959 13.3164 4.46447 13.6093 4.75736L17.8519 9L13.6093 13.2426C13.3164 13.5355 13.3164 14.0104 13.6093 14.3033C13.9022 14.5962 14.377 14.5962 14.6699 14.3033L19.4429 9.53033ZM4 9.75H18.9126V8.25H4V9.75Z"
+                fill="#1F1F1F"
+              />
+            </svg>
+          </div>
+
+          <div class="name">Sair</div>
+        </button>
+
+        <button type="button" class="actions_option" data-link-to="chat">
+          <div class="icon normal">
+            <svg
+              width="17"
+              height="17"
+              viewBox="0 0 17 17"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.725 16.45C12.9914 16.45 16.45 12.9914 16.45 8.725C16.45 4.4586 12.9914 1 8.725 1C4.4586 1 1 4.4586 1 8.725C1 10.132 1.37618 11.4512 2.03347 12.5875L1.38625 16.0637L4.8625 15.4165C5.99875 16.0738 7.31797 16.45 8.725 16.45Z"
+                stroke="black"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M4.70795 12.1244V11.7608C4.70795 10.3554 5.84725 9.21613 7.25265 9.21613C8.65806 9.21613 9.79736 10.3554 9.79736 11.7608V12.1244"
+                stroke="black"
+                stroke-width="0.8"
+                stroke-linecap="round"
+              />
+              <path
+                d="M9.07007 9.94283C9.07007 8.93898 9.88387 8.12518 10.8877 8.12518C11.8916 8.12518 12.7054 8.93898 12.7054 9.94283V10.1246"
+                stroke="black"
+                stroke-width="0.8"
+                stroke-linecap="round"
+              />
+              <path
+                d="M7.25343 9.21616C8.05651 9.21616 8.70755 8.56511 8.70755 7.76204C8.70755 6.95895 8.05651 6.30792 7.25343 6.30792C6.45035 6.30792 5.79932 6.95895 5.79932 7.76204C5.79932 8.56511 6.45035 9.21616 7.25343 9.21616Z"
+                stroke="black"
+                stroke-width="0.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M10.8882 8.12527C11.4905 8.12527 11.9788 7.63699 11.9788 7.03468C11.9788 6.43237 11.4905 5.94409 10.8882 5.94409C10.2859 5.94409 9.79761 6.43237 9.79761 7.03468C9.79761 7.63699 10.2859 8.12527 10.8882 8.12527Z"
+                stroke="black"
+                stroke-width="0.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+
+          <div class="name">Chat interno</div>
+        </button>
+
+        <button type="button" id="analysisMode" class="actions_option">
+          <div class="icon">
+            <span class="bar"></span>
+          </div>
+
+          <div class="name">Modo análise</div>
+        </button>
+
+        <a href="../settings/index.html" class="link">
+          <svg
+            width="17"
+            height="17"
+            viewBox="0 0 17 17"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8.72503 10.9322C9.94403 10.9322 10.9322 9.94403 10.9322 8.72503C10.9322 7.50602 9.94403 6.51788 8.72503 6.51788C7.50602 6.51788 6.51788 7.50602 6.51788 8.72503C6.51788 9.94403 7.50602 10.9322 8.72503 10.9322Z"
+              stroke="black"
+              stroke-width="0.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M15.099 7.60896C14.7933 7.53122 14.5422 7.31383 14.4215 7.02242L13.9985 6.00084C13.8553 5.65508 13.9171 5.25832 14.1588 4.97255L14.3111 4.79238C14.6468 4.39533 14.6223 3.80726 14.2546 3.4396L14.0138 3.19883C13.6447 2.82975 13.0539 2.80661 12.6571 3.14572L12.4842 3.29346C12.1989 3.53724 11.8012 3.60081 11.4542 3.45809L10.3888 3.01995C10.0988 2.90071 9.88158 2.6524 9.80193 2.34917L9.63935 1.73025C9.52632 1.29997 9.13737 1 8.6925 1V1C8.24778 1 7.85894 1.29975 7.74576 1.72982L7.57491 2.37903C7.49594 2.67908 7.28217 2.92548 6.99627 3.046L5.98816 3.47096C5.6329 3.62071 5.2232 3.55291 4.93513 3.29669L4.79476 3.17184C4.39904 2.81987 3.79754 2.83746 3.42306 3.21194L3.18272 3.45228C2.82037 3.81463 2.79056 4.39225 3.11369 4.78996L3.29462 5.01265C3.52473 5.29588 3.58229 5.68196 3.4448 6.01998L3.02776 7.04533C2.90546 7.34601 2.64483 7.56862 2.32872 7.6424L1.76673 7.77356C1.31767 7.87836 1 8.27871 1 8.73983V8.73983C1 9.18719 1.29936 9.57922 1.73092 9.69704L2.38567 9.87579C2.68187 9.95665 2.92451 10.1691 3.04378 10.452L3.47048 11.4643C3.6204 11.8199 3.55228 12.2301 3.29546 12.5182L3.17334 12.6552C2.82064 13.0508 2.83791 13.6529 3.21269 14.0277L3.45132 14.2663C3.81408 14.6291 4.39249 14.6585 4.79017 14.3344L5.01212 14.1535C5.29652 13.9217 5.68501 13.8643 6.0243 14.0039L7.0209 14.4139C7.31389 14.5344 7.53243 14.7867 7.61001 15.0938L7.76328 15.7008C7.87454 16.1413 8.27087 16.45 8.72527 16.45V16.45C9.17942 16.45 9.57559 16.1417 9.68709 15.7014L9.84128 15.0926C9.91881 14.7865 10.1363 14.535 10.4281 14.4142L11.4994 13.9705C11.8183 13.8385 12.1807 13.883 12.4444 14.1056C12.511 14.1619 12.5799 14.2207 12.6486 14.2798C13.0511 14.6264 13.6541 14.6109 14.0297 14.2353L14.2538 14.0112C14.6218 13.6432 14.646 13.0545 14.3094 12.6575L14.1531 12.4731C13.9108 12.1873 13.8487 11.79 13.992 11.4439L14.4163 10.4193C14.5362 10.1297 14.785 9.91306 15.0884 9.83413L15.713 9.67163C16.147 9.5587 16.4499 9.16687 16.45 8.71841V8.71841C16.45 8.26789 16.1443 7.87477 15.7077 7.76374L15.099 7.60896Z"
+              stroke="black"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span>Configurações</span>
+        </a>
+      </div>
+    </aside>
+
+    <main>
+      <header>
+        <div class="pageName">
+          <svg
+            width="19"
+            height="17"
+            viewBox="0 0 19 17"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M16.0751 16.4497H2.88439C1.84367 16.4497 1 15.6061 1 14.5653V6.08556C1 5.04484 1.84367 4.20117 2.88439 4.20117H16.0751C17.1159 4.20117 17.9595 5.04484 17.9595 6.08556V14.5653C17.9595 15.6061 17.1159 16.4497 16.0751 16.4497Z"
+              stroke="black"
+            />
+            <path
+              d="M13.7196 10.7977C13.4595 10.7977 13.2485 10.5867 13.2485 10.3266C13.2485 10.0664 13.4595 9.85547 13.7196 9.85547C13.9798 9.85547 14.1907 10.0664 14.1907 10.3266C14.1907 10.5867 13.9798 10.7977 13.7196 10.7977Z"
+              fill="black"
+              stroke="black"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M15.1329 4.20146V2.88542C15.1329 1.64732 13.9593 0.745646 12.763 1.06465L2.39885 3.82843C1.57396 4.04841 1 4.79548 1 5.6492V6.08585"
+              stroke="black"
+            />
+          </svg>
+
+          <h1>Controle de ponto</h1>
+        </div>
+
+        <form class="searchBar">
+          <input
+            type="search"
+            name="search"
+            placeholder="Digite o que deseja encontrar"
+          />
+
+          <button type="submit">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3.21874 7.08127C3.21874 9.92554 5.52447 12.2313 8.36874 12.2313C11.213 12.2313 13.5187 9.92554 13.5187 7.08127C13.5187 4.23701 11.213 1.93127 8.36874 1.93127C5.52447 1.93127 3.21874 4.23701 3.21874 7.08127Z"
+                stroke="black"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M1.93125 13.5188L4.73157 10.7184"
+                stroke="black"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </form>
+      </header>
+
+      <section id="main_content" class="tableContainer">
+        <header class="tableContainer_header">
+          <div class="tableName">
+            <h2>Histórico</h2>
+          </div>
+          <div class="options">
+            <button type="button" data-link-to="tolken/tolkenEmployees">
+              Registrar-se
+            </button>
+          </div>
+        </header>
+
+        <div class="table">
+          <table class="table_content">
+            <thead class="table header">
+              <tr>
+                <th>Data</th>
+                <th>Entrada</th>
+                <th>Saída</th>
+                <th>Excedente</th>
+              </tr>
+            </thead>
+
+            <tbody id="tbody" class="table body"></tbody>
+          </table>
+
+          <div id="loading-div">
+            <div id="loading-bubble">
+              <script
+                src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+                type="module"
+              ></script>
+
+              <dotlottie-player
+                src="https://lottie.host/29e5ec97-c579-4bd4-bba1-a1801849014d/I7wKA6dKTe.json"
+                background="transparent"
+                speed="1"
+                loop
+                autoplay
+              ></dotlottie-player>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <button type="button" id="showNotes">
+        <svg
+          width="17"
+          height="17"
+          viewBox="0 0 17 17"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M1 8.725H8.725M8.725 8.725H16.45M8.725 8.725V1M8.725 8.725V16.45"
+            stroke="black"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+
+        Anotações
+      </button>
+    </main>
+
+    <div id="notesContainer">
+      <div class="title">
+        <h2>Anotações de trabalho</h2>
+      </div>
+
+      <div class="notes"></div>
+
+      <div class="generalActions">
+        <button type="button" id="closeNotes">
+          <svg
+            width="17"
+            height="17"
+            viewBox="0 0 17 17"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M1 8.725H8.725M8.725 8.725H16.45M8.725 8.725V1M8.725 8.725V16.45"
+              stroke="black"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+
+        <button type="button" id="showNewNotesForm">
+          <svg
+            width="15"
+            height="16"
+            viewBox="0 0 15 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M9 3L12.5 6" stroke="black" stroke-linecap="round" />
+            <path
+              d="M9.35907 1.77111L1.48902 10.8463C1.17363 11.21 1 11.6753 1 12.1567V14.6C1 14.8209 1.17909 15 1.4 15H4.39599C4.98989 15 5.55307 14.7361 5.93305 14.2796L13.3857 5.32768C13.7289 4.91537 13.6856 4.30566 13.2876 3.94595L10.785 1.68435C10.3693 1.30868 9.72615 1.34782 9.35907 1.77111Z"
+              stroke="black"
+              stroke-linecap="round"
+            />
+          </svg>
+
+          <h3>Criar nova anotação</h3>
+        </button>
+      </div>
+    </div>
+
+    <!-- Toastfy -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  </body>
+</html>

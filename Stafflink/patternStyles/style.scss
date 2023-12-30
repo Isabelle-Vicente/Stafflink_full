@@ -1,0 +1,114 @@
+@import './patterns/resets';
+@import './components/side_menu/style';
+@import './components/main/style';
+@import './components/notes/styles';
+
+body {
+    @include flexBox($fd: row, $a: center, $j: space-between);
+    width: 100%;
+    overflow: hidden auto;
+
+    .blurredOut {
+        filter: blur(10px);
+    }
+}
+
+.toastify.toastify-right.toastify-top{
+    width: 90%;
+    max-width: 500px;
+    padding: 1.5rem 2rem;
+    border-radius: .5rem;
+    background: unset;
+
+    & > div {
+        @include flexBox($fd: column, $g: 1rem);
+    }
+
+    .messageContainer {
+        @include flexBox($fd: column, $g: .5rem);
+
+        h1 {
+            font-size: 1.2rem,
+        }
+    
+        p {
+            font-size: 0.8rem;
+            opacity: 0.75;
+        }
+    }
+
+    .optionsContainer {
+        @include flexBox($a: center, $g: 1rem, $fw: wrap);
+
+        &:has(#prompt_input) {
+            flex-direction: column;
+
+            #prompt_input, .confirmButton{
+                flex: 1 0 auto;
+                width: 100%;
+            }
+        }
+
+        #prompt_input {
+            border: 2px solid $bg-secondary;
+            color: $bg-secondary;
+
+            &::placeholder {
+                color: $bg-secondary;
+                opacity: .8;
+            }
+        }
+
+        .closeButton {
+            border-color: $bg-secondary;
+            color: $bg-secondary;
+            flex: 1 0 auto;
+
+            &:hover {
+                border-color: $bg-primary;
+                background-color: $bg-primary;
+                color: $default-color;
+            }
+        }
+
+        .confirmButton {
+            border-color: $bg-primary;
+            background-color: $bg-primary;
+            color: $default-color;
+            flex: 1 0 auto;
+
+            &:hover {
+                border-color: $bg-secondary;
+                background-color: $bg-secondary;
+            }
+        }
+    }
+
+    button.toast-close {
+        position: absolute;
+        opacity: .7;
+        right: .5rem;
+        top: .5rem;
+        font-size: 1.4rem;
+
+        &:hover {
+            opacity: 1;
+            background: unset;
+        }
+    }
+
+    &.info {
+        background-color: $extra-primary;
+        color: #FFFFFF;
+    }
+
+    &.danger {
+        background-color: $extra-terciary;
+        color: #FFFFFF;
+    }
+
+    &.success {
+        background-color: $extra-secondary;
+        color: #FFFFFF;
+    }
+}

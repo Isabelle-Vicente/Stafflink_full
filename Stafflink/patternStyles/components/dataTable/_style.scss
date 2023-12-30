@@ -1,0 +1,156 @@
+@import '../../patterns/variables';
+
+.tableContainer {
+    @include flexBox($fd: column, $g: 1rem);
+    flex: 1 1 auto;
+
+    & .tableContainer_header {
+        @include flexBox($a: center, $j: space-between, $g: 1rem, $fw: wrap);
+        padding: 1rem 1.5rem;
+
+        .tableName {
+            height: fit-content;
+            h2 {
+                font-family: "PoppinsLight";
+            }
+        }
+
+        .tableFilters {
+            @include flexBox($g: .7rem, $fw: wrap);
+            .filter {
+                transition: $linear;
+                padding: .5rem;
+            }
+
+            select.filter {
+                padding: .5rem 1rem;
+            }
+        }
+    }
+
+    .table {
+        max-width: 100%;
+        overflow-x: auto;
+
+        .table_content {
+            width: 100%;
+            display: table;
+            border-spacing: unset;
+            padding-bottom: 3rem;
+    
+            th {
+                min-width: 150px;
+                width: 16%;
+                padding: 0 .5rem;
+            }
+    
+            th, tr {
+                text-align: center;
+            }
+
+            thead {
+                background-color: #ffffff;
+                position: sticky;
+                top: 0;
+                z-index: 1;
+            }
+    
+            .header {
+                width: 100%;
+                font-size: .75rem;
+                box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.1);
+            }
+    
+            .body {
+                font-size: .85rem;
+    
+                tr {
+                    height: 85px;
+
+                    &:nth-child(odd) {
+                        box-shadow: $innerShadow;
+                    }
+    
+                    td {
+                        padding: .5rem;
+                        white-space: nowrap;
+    
+                        .employeeCode {
+                            @include flexBox($a: center, $j: center, $g: 1rem);
+                        }
+
+                        .employeePhoto {
+                            @include flexBox($a: center, $j: center);
+                            transform: rotate(45deg);
+                            overflow: hidden;
+                            border-radius: .1rem;
+                            width: 35px;
+                            height: 35px;
+                            border: 1px solid $extra-primary;
+                            
+                            img {
+                                transform: rotate(-45deg);
+                                min-width: 50px;
+                                width: 50px;
+                                min-height: 50px;
+                                height: 50px;
+                                object-fit: cover;
+                            }
+                        }
+    
+                        &.employee {
+    
+                            .office {
+                                display: block;
+                                font-style: italic;
+                                color: $extra-secondary;
+                                font-size: .65rem;
+                            }
+                        }
+    
+                        &.actions {
+                            .viewMore {
+                                @include flexBox();
+                                
+                                padding: 1rem;
+                                border: none;
+                                transition: $linear;
+
+                                &:hover {
+                                    background: none;
+                                    transform: scale(1.1);
+                                }
+
+                                svg {
+                                    width: 30px;
+                                }
+                            }
+                        }
+
+                        &.additional {
+                            &.negative {
+                                color: $extra-terciary;
+                            }
+
+                            &.positive {
+                                color: $extra-secondary;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media(min-width: 780px) {
+    .tableContainer {
+        .table {
+            .table_content {
+                th {
+                    min-width: unset;
+                }
+            }
+        }
+    }
+}

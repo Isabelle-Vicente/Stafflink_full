@@ -1,0 +1,399 @@
+@import '../../patterns/variables';
+
+#side_menu {
+    @include flexBox($fd: column, $j: space-between, $g: 1rem);
+    // flex: 1 1 auto;
+    // flex: 1 0 auto;
+    flex: 0 0 auto;
+    max-width: 250px;
+    height: 100vh;
+    padding: 1rem 1rem .2rem;
+    // border: 1px solid blue;
+    overflow: hidden auto;
+    transition: $linear;
+    z-index: 100000;
+
+    #navigationBar {
+        width: 100%;
+        // border: 1px solid green;
+        flex: 1 0 auto;
+
+        ul {
+            @include flexBox($fd: column, $j: space-between, $g: .5rem);
+            width: 100%;
+            height: 100%;
+
+            .container {
+                // width: inherit;
+                @include flexBox($g: .5rem);
+
+                &:has(.link_info li) {
+                    align-items: center;
+                }
+
+                &:has(.link_info li ul) {
+                    align-items: flex-start;
+                }
+
+                &.current {
+                    color: $extra-primary;
+
+                    svg path {
+                        stroke: $extra-primary;
+                    }
+                }
+
+                &.link {
+                    cursor: pointer;
+                    transition: $linear;
+
+                    &:hover {
+                        color: $extra-primary;
+
+                        svg path {
+                            stroke: $extra-primary;
+                        }
+                    }
+
+                    .link {
+                        &_icon {
+                            width: 40px;
+    
+                            // img {
+                            //     object-fit: contain;
+                            // }
+                        }
+    
+                        &_info {
+                            font-size: 1rem;
+                            height: fit-content;
+    
+                            ul {
+                                @include flexBox($fd: column, $g: .5rem);
+                                font-size: .7rem;
+                                padding-left: 1rem;                        
+                            }
+                        }
+                    }
+                }
+            }
+
+            .user {
+                margin-bottom: 1rem;
+                align-items: center;
+
+                &_figure {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: .3rem;
+                    overflow: hidden;
+
+                    img {
+                        object-fit: cover;
+                    }
+                }
+
+                &_info {
+                    h3 {
+                        font-size: .9rem;
+                    }
+
+                    p {
+                        font-size: .6rem;
+                        font-style: italic;
+                        color: $extra-primary;
+                    }
+                }
+            }
+        }
+    }
+
+    hr {
+        border: 1.5px solid $extra-primary;
+        border-radius: 2rem;
+    }
+
+    .actions {
+        @include flexBox($fd: column, $g: .5rem);
+
+        &_option {
+            @include flexBox($a: center, $g: 1rem);
+            padding: .5rem 1rem;
+            color: $default-color;
+
+            border: none;
+            background-color: $bg-secondary;
+            transition: $linear;
+
+            &:hover {
+                box-shadow: 0 0 10px 2px rgba($color: $bg-secondary, $alpha: 0.7);
+                color: $extra-primary;
+
+                .icon {
+                    &.especial {
+                        svg path {    
+                            &:nth-child(1) {
+                                stroke: $extra-primary;                            
+                            }
+    
+                            &:nth-child(2) {
+                                fill: $extra-primary;
+                            }
+                        }
+                    }
+                    
+                    &.normal {
+                        svg path {    
+                            stroke: $extra-primary; 
+                        }                           
+                    }
+                }
+                
+            }
+
+            &:has(.bar) {
+                &:hover {
+                    .bar {
+                        background-color: $extra-primary;
+                    }
+                }
+
+                &.active {
+                    border: 2px solid $extra-primary;
+                    
+                    .bar {
+                        background-color: $extra-primary;
+                    }
+                }
+            }
+
+            .icon {
+                @include flexBox($a: center, $j: center);
+                width: 25px;
+
+                &:has(.bar) {
+                    @include flexBox($a: center, $j: center);   
+                    height: 100%;
+                    min-height: 25px;
+
+                    span {
+                        position: relative;
+                        width: 3px;
+                        height: 15px;
+                        background-color: $default-color;
+                        transition: $linear;            
+
+                        border-radius: .5rem;
+
+                        &::before, &::after {
+                            position: absolute;
+                            content: '';
+
+                            width: inherit;
+                            height: inherit;
+                            background-color: inherit;
+                            border-radius: inherit;
+                            bottom: 0;
+                        }
+
+                        &::before {
+                            left: -10px;
+                            height: 20px;
+                        }
+
+                        &::after {
+                            left: 10px;
+                            height: 10px;
+                        }
+                    }
+                }
+            }
+
+            .name {
+                font-size: .8rem;
+            }
+        }
+
+        .link {
+            @include flexBox($a: center, $j: center, $g: .5rem);
+            font-size: .7rem;
+            padding: .5rem 0;
+
+            svg {
+                width: 25px;
+            }
+        }
+    }
+
+    &.analysisMode {
+        // background-color: red;
+        // width: fit-content;
+
+        #navigationBar {
+            width: fit-content;
+            ul {
+                width: fit-content;
+                
+                li {
+                    justify-content: center;
+
+                
+                }
+
+                li > :not(:first-child) {
+                    // background-color: red;
+                    display: none;
+
+                    // border: 1px solid red;
+
+                    // width: 0;
+                }
+            }
+        }
+
+        .actions {
+            &_option {
+                padding: .5rem;
+                justify-content: center;
+
+                & > :not(:first-child) {
+                    display: none;
+                    // border: 1px solid green;
+                }
+            }
+
+            .link {
+                > :not(:first-child){
+                    display: none;
+                    // border: 1px solid green;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 780px) {
+        &:not(.analysisMode) {
+            position: fixed;
+            height: fit-content;
+            padding: 1rem;
+            left: 0;
+            bottom: 0;
+
+            #navigationBar, hr {
+                display: none;
+            }
+
+            .actions {
+                > :not(#analysisMode) {
+                    display: none;
+                }
+            }
+        }
+
+        .actions {
+            #analysisMode {
+                .bar {
+                    transform: rotate(90deg);
+                    height: 20px;
+
+                    &::before, &::after {
+                        height: inherit;
+                    }
+
+                    &::before {
+                        left: -5px;
+                    }
+
+                    &::after {
+                        left: 5px;
+                    }
+                }
+            }
+        }
+
+        &.analysisMode {
+            max-width: unset;
+            width: 100%;
+            // height: fit-content;
+
+            position: fixed;
+            bottom: 0;
+
+            background-color: $bg-secondary;
+
+            // overflow: unset;
+
+            // .actions .link > :not(:first-child)
+
+            #navigationBar {
+                width: 100%;
+                // flex: 0 1 auto;
+                flex: 1 1 auto;
+                // height: 100%;
+
+                ul {
+                    // flex-direction: row;
+                    flex-wrap: wrap;
+                    gap: 1rem 2rem;
+                    width: 100%;
+                    // height: fit-content;
+                    // justify-content: center;
+
+                    // .user {
+                    //     display: none;
+                    // }
+
+                    li {
+                        justify-content: unset;
+
+                        & > :not(:first-child) {
+                            display: unset;
+                        }
+                    }
+
+                    .container:has(.link_info li ul) {
+                        height: fit-content;
+                    }
+                }
+            }
+
+            .actions {
+                // flex-direction: row;
+                // justify-content: space-between;
+                flex: 0 10 auto;
+
+                &_option {
+                    background-color: $bg-primary;
+
+                    > :not(:first-child) {
+                        display: unset;
+                    }
+                }
+
+                #analysisMode {
+                    .bar {
+                        transform: rotate(-45deg);
+                        height: 20px;
+
+                        &::before {
+                            left: 0;
+                            transform: rotate(90deg);
+                        }
+
+                        &::after {
+                            display: none;
+                        }
+                    }
+                }
+
+                .link {
+                    padding: .5rem;
+
+                    > :not(:first-child) {
+                        display: unset;
+                    }
+                }
+            }
+        }
+    }
+}

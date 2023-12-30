@@ -1,0 +1,15 @@
+@import '../../../../patternStyles/style.scss';
+@import '../../../../patternStyles/components/dataTable/style';
+@import '../../../../patternStyles/components/form/styles';
+
+select {
+    border-radius: 5rem;
+}
+
+#loader {
+    margin-left: 2rem;
+}
+
+#main_content {
+    padding-bottom: 4rem;
+}

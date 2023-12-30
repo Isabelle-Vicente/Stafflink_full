@@ -1,0 +1,48 @@
+@import '../../../../patternStyles/style.scss';
+@import '../../../login/styles/style.scss';
+
+#sideContent {
+    background-color: #F1F1F1;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    color: white;
+    background-color: #029AA4;
+
+    .title {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    #tolkenArea {
+        background-color: #f1f1f1;
+        padding: 2rem 2rem;
+        border-radius: 1rem;
+        color: #015E64;
+
+        span {
+            font-size: 9rem;
+        }
+    }
+
+    #progressBar {
+        border-radius: 2px;
+        width: 100%;
+        height: 40px;
+        background-color: lightgray;
+    }
+
+    #progress {
+        border-radius: 2px;
+        height: 100%;
+        width: 100%;
+        background-color: #029AA4;
+    }
+
+    #tolkenbtn {
+        color: #029AA4;
+        background-color: #F1F1F1;
+    }
+}
